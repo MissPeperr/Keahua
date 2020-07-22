@@ -5,4 +5,4 @@ class Animal:
         self.age = 0
 
     def move(self, propulsion, speed):
-        return f"{self. species} moves at {speed} meters/sec by {propulsion}"
+        return f"{self.species} moves at {speed} meters/sec by {propulsion}"

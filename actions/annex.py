@@ -5,9 +5,11 @@ from environments import Grassland
 from environments import Mountain
 from environments import River
 from environments import Swamp
+from actions.menu_header import print_header
 
 def annex_habitat(arboretum):
     os.system('cls' if os.name == 'nt' else 'clear')
+    print_header()
     print("1. Coastline")
     print("2. Forest")
     print("3. Grassland")

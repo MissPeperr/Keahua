@@ -1,8 +1,10 @@
 from animals import RiverDolphin
+from actions.menu_header import print_header
 
 def release_animal(arboretum):
     animal = None
 
+    print_header()
     print("1. River Dolphin")
     print("2. Dragonfly")
 
