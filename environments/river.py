@@ -1,15 +1,13 @@
 from animals import Aquatic
 from animals import Identifiable
-from environments import ContainsAnimals
-from environments import ContainsPlants
+from environments import Environment
 from animals import RiverDolphin
 
 
-class River(ContainsAnimals, ContainsPlants, Identifiable):
+class River(Environment, Identifiable):
 
     def __init__(self):
-      ContainsAnimals.__init__(self)
-      ContainsPlants.__init__(self)
+      Environment.__init__(self)
       Identifiable.__init__(self)
 
     def add_animal(self, animal):

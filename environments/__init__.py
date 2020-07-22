@@ -1,3 +1,3 @@
+from .environment import Environment
 from .river import River
-from .contains_animals import ContainsAnimals
-from .contains_plants import ContainsPlants
+from .swamp import Swamp
