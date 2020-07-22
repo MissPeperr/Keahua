@@ -9,7 +9,7 @@ class HawaiianHappyFaceSpider(Animal, Terrestrial, Walking):
     def __init__(self):
         Animal.__init__(self, "Hawaiian Happy-Face Spider")
         Terrestrial.__init__(self)
-        Walking.__init__(self)
+        Walking.__init__(self, 8)
         self.__prey = {"Crickets", "Flies"}
 
     @property
