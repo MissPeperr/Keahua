@@ -1,6 +1,9 @@
-class Animal:
+from animals import Identifiable
+
+class Animal(Identifiable):
 
     def __init__(self, species):
+        Identifiable.__init__(self)
         self.species = species
         self.age = 0
 

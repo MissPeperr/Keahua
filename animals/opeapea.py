@@ -1,14 +1,12 @@
 from animals import Animal
-from animals import Freshwater
-from animals import Identifiable
+from animals import Flying
 
-class RiverDolphin(Animal, Freshwater, Identifiable):
+class OpeApeA(Animal, Flying):
 
     def __init__(self):
-        Animal.__init__(self, "River dolphin")
-        Freshwater.__init__(self)
-        Identifiable.__init__(self)
-        self.__prey = { "Trout", "Mackarel", "Salmon", "Sardine" }
+        Animal.__init__(self, "Ope'ape'a")
+        Flying.__init__(self)
+        self.__prey = { "Crickets", "Carrot tops", "Worms", "Lettuce" }
 
     @property
     def prey(self):
@@ -16,9 +14,9 @@ class RiverDolphin(Animal, Freshwater, Identifiable):
 
     def feed(self, prey):
         if prey in self.__prey:
-            print(f'The dolphin ate {prey} for a meal')
+            print(f'The ope\'ape\'a ate {prey} for a meal')
         else:
-            print(f'The dolphin rejects the {prey}')
+            print(f'The ope\'ape\'a rejects the {prey}')
 
     def __str__(self):
-        return f'River Dolphin [{str(self.id)}]'
+        return f'Ope\'ape\'a [{str(self.id)}]'
