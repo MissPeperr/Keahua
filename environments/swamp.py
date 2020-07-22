@@ -8,7 +8,7 @@ from environments import Environment
 class Swamp(Environment):
 
     def __init__(self, name):
-      Environment.__init__(name)
+      Environment.__init__(self, name)
 
     def animal_count(self):
         return "This place has a bunch of animals in it"
