@@ -11,7 +11,8 @@ def annex_habitat(arboretum):
     choice = input("Choose your habitat > ")
 
     if choice == "1":
-        river = River()
+        name = input("What's the name for this River? > ")
+        river = River(name)
         arboretum.rivers.append(river)
     if choice == "2":
         pass
