@@ -1,14 +1,13 @@
 from animals import Aquatic
-from animals import Identifiable
 from environments import Environment
 from animals import RiverDolphin
 
 
-class River(Environment, Identifiable):
+class River(Environment):
 
-    def __init__(self):
-      Environment.__init__(self)
-      Identifiable.__init__(self)
+    def __init__(self, name):
+      Environment.__init__(self, name)
+      
 
     def add_animal(self, animal):
         try:
