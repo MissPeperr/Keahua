@@ -1,12 +1,12 @@
 from animals import Animal
-from animals import Freshwater
+from animals import Saltwater
 from animals import Swimming
 
 class Ulae(Animal, Saltwater, Swimming):
 
     def __init__(self):
         Animal.__init__(self, "'Ulae")
-        Freshwater.__init__(self)
+        Saltwater.__init__(self)
         Swimming.__init__(self)
         self.__prey = { "Sardines", "Shrimp", "Goldfish", "Sea Urchin" }
 
