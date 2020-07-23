@@ -1,6 +1,6 @@
 from animals import Animal
-from animals import Flying
-from animals import Walking
+from animals.attributes import Flying
+from animals.attributes import Walking
 
 class Pueo(Animal, Flying, Walking):
 

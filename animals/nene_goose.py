@@ -1,7 +1,7 @@
 from animals import Animal
-from animals import Flying
-from animals import Walking
-from animals import Swimming
+from animals.attributes import Flying
+from animals.attributes import Walking
+from animals.attributes import Swimming
 
 class NeneGoose(Animal, Flying, Walking, Swimming):
 

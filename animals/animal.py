@@ -1,4 +1,4 @@
-from animals import Identifiable
+from animals.attributes import Identifiable
 
 class Animal(Identifiable):
 

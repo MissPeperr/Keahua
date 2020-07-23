@@ -1,6 +1,6 @@
 from animals import Animal
-from animals import Freshwater
-from animals import Swimming
+from animals.attributes import Freshwater
+from animals.attributes import Swimming
 
 class Kikakapu(Animal, Freshwater, Swimming):
 

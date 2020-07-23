@@ -9,6 +9,7 @@ from actions.utilities import add_color
 
 keahua = Arboretum("Keahua Arboretum", "123 Paukauila Lane")
 
+
 def build_menu():
     clear()
     print_header()
@@ -22,7 +23,7 @@ def build_menu():
     print()
 
 
-def main_menu():
+def main_menu(invalid_option):
     """Show Keahua Action Options
 
     Arguments: None
@@ -50,5 +51,6 @@ def main_menu():
 
     if choice != "6":
         main_menu()
+
 
 main_menu()

@@ -1,6 +1,6 @@
 from .contains_animals import ContainsAnimals
 from .contains_plants import ContainsPlants
-from animals.identifiable import Identifiable
+from animals.attributes.identifiable import Identifiable
 
 
 # what do the biomes have in common?

@@ -1,5 +1,5 @@
 from animals import Animal
-from animals import Flying
+from animals.attributes import Flying
 
 class OpeApeA(Animal, Flying):
 

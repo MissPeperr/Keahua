@@ -1,6 +1,6 @@
 from animals import Animal
-from animals import Saltwater
-from animals import Swimming
+from animals.attributes import Saltwater
+from animals.attributes import Swimming
 
 class Ulae(Animal, Saltwater, Swimming):
 

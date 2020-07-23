@@ -1,7 +1,6 @@
 from animals import Animal
-from animals import Terrestrial
-from animals import Walking
-from animals import Identifiable
+from animals.attributes import Terrestrial
+from animals.attributes import Walking
 
 
 class HawaiianHappyFaceSpider(Animal, Terrestrial, Walking):

@@ -1,4 +1,4 @@
-from .aquatic import Aquatic
+from animals.attributes import Aquatic
 
 class Saltwater(Aquatic):
 
