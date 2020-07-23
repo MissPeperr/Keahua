@@ -69,6 +69,8 @@ def annex_habitat(arboretum):
         biome = Swamp(name)
         arboretum.swamps.append(biome)
     
+    #TODO: Add another if/else for if they don't choose options 1-6
+    
     print(f'Purchasing the {biome.name} {type(biome).__name__}...')
     loading_sequence()
     print(f'Terraforming a bit...')

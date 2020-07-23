@@ -34,7 +34,7 @@ def release_animal(arboretum, wrong_choice):
     print(f'{add_color("7.", "bright_cyan")} River Dolphin')
     print(f'{add_color("8.", "bright_cyan")} \'Ulae')
     print()
-    
+
     print(f'{add_color("Select an animal to release", "WARNING")}{CLColors.ENDC}')
     choice = input("> ")
 
@@ -76,29 +76,38 @@ def release_animal(arboretum, wrong_choice):
 
     print(f'{add_color("Available Biomes:", "HEADER")}')
     print()
+
+    biome_list = list()
     for index, coastline in enumerate(arboretum.coastlines):
-        print(f'{add_color(f"{index + 1}.", "bright_cyan")} {coastline} Coastline [{str(coastline.id)[:8]}]: ({len(coastline.animals)} animals)')
+        biome_list.append(coastline)
 
     for index, forest in enumerate(arboretum.forests):
-        print(f'{add_color(f"{index + 1}.", "bright_cyan")} {forest} Forest [{str(forest.id)[:8]}]: ({len(forest.animals)} animals)')
+        biome_list.append(forest)
 
     for index, grassland in enumerate(arboretum.grasslands):
-        print(f'{add_color(f"{index + 1}.", "bright_cyan")} {grassland} Grassland [{str(grassland.id)[:8]}]: ({len(grassland.animals)} animals)')
+        biome_list.append(grassland)
 
     for index, mountain in enumerate(arboretum.mountains):
-        print(f'{add_color(f"{index + 1}.", "bright_cyan")} {mountain} Mountain [{str(mountain.id)[:8]}]: ({len(mountain.animals)} animals)')
+        biome_list.append(mountains)
     
     for index, river in enumerate(arboretum.rivers):
-        print(f'{add_color(f"{index + 1}.", "bright_cyan")} {river} River [{str(river.id)[:8]}]: ({len(river.animals)} animals)')
+        biome_list.append(river)
 
     for index, swamp in enumerate(arboretum.swamps):
-        print(f'{add_color(f"{index + 1}.", "bright_cyan")} {swamp} Swamp [{str(swamp.id)[:8]}]: ({len(swamp.animals)} animals)')
+        biome_list.append(swamp)
+
+    for index, biome in enumerate(biome_list):
+        print(f'{add_color(f"{index + 1}.", "bright_cyan")} {biome.name} {type(biome).__name__} [{str(biome.id)[:8]}]: ({len(biome.animals)} animals)')
 
     print()
     print()
     print(f'{add_color(f"Release the {animal.species} into which biome?", "WARNING")}')
     choice = input("> ")
 
-    arboretum.rivers[int(choice) - 1].add_animal(animal)
+    # check if choice selected exists as an index on the biome_list
+    if int(choice - 1) < len(biome_list):
+        biome_list[int(choice) - 1].add_animal(animal)
+        arboretum.rivers[int(choice) - 1].add_animal(animal)
+        
 
 
