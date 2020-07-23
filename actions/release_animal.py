@@ -15,23 +15,28 @@ from actions.utilities import clear
 from actions.utilities import add_color
 
 def release_animal(arboretum, wrong_choice):
+    """
+        Prompts user to create an Animal to release into an Enviornment.
+    """
 
     animal = None
-    clear()
 
     if wrong_choice != True:
         print_header()
 
-    print("1. Gold Dust Day Gecko")
-    print("2. Hawaiian Happy-Face Spider")
-    print("3. Kīkākapu")
-    print("4. Nene Goose")
-    print("5. Ope'ape'a")
-    print("6. Pueo")
-    print("7. River Dolphin")
-    print("8. 'Ulae")
-
-    choice = input(f'{CLColors.bright_yellow}Select an animal to release > {CLColors.ENDC}')
+    print()
+    print(f'{add_color("1.", "bright_cyan")} Gold Dust Day Gecko')
+    print(f'{add_color("2.", "bright_cyan")} Hawaiian Happy-Face Spider')
+    print(f'{add_color("3.", "bright_cyan")} Kīkākapu')
+    print(f'{add_color("4.", "bright_cyan")} Nene Goose')
+    print(f'{add_color("5.", "bright_cyan")} Ope\'ape\'a')
+    print(f'{add_color("6.", "bright_cyan")} Pueo')
+    print(f'{add_color("7.", "bright_cyan")} River Dolphin')
+    print(f'{add_color("8.", "bright_cyan")} \'Ulae')
+    print()
+    
+    print(f'{add_color("Select an animal to release", "WARNING")}{CLColors.ENDC}')
+    choice = input("> ")
 
     if choice == "1":
         animal = GoldDustDayGecko()
@@ -61,6 +66,7 @@ def release_animal(arboretum, wrong_choice):
         wrong_choice = True
         clear()
         print(f'{add_color(f"{choice} is not an animal. Please make another selection.", "FAIL")}')
+        print()
         release_animal(arboretum, wrong_choice)
 
     print(f'Getting the {animal.species} ready...')
@@ -90,7 +96,7 @@ def release_animal(arboretum, wrong_choice):
 
     print()
     print()
-    print(f'{add_color("Release the animal into which biome?", "bright_yellow")}')
+    print(f'{add_color(f"Release the {animal.species} into which biome?", "WARNING")}')
     choice = input("> ")
 
     arboretum.rivers[int(choice) - 1].add_animal(animal)
