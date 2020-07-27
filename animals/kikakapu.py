@@ -5,7 +5,7 @@ from animals.attributes import Swimming
 class Kikakapu(Animal, Freshwater, Swimming):
 
     def __init__(self):
-        Animal.__init__(self, "Kīkākapu", 1)
+        Animal.__init__(self, "Kīkākapu", 1.0)
         Freshwater.__init__(self)
         Swimming.__init__(self)
         self.__prey = { "Goldfish", "Shrimp", "Sardine" }
@@ -21,4 +21,4 @@ class Kikakapu(Animal, Freshwater, Swimming):
             print(f'The kīkākapu rejects the {prey}')
 
     def __str__(self):
-        return f'Kīkākapu [{str(self.id)}]'
+        return f'Kīkākapu [{str(self.id)[:8]}]'

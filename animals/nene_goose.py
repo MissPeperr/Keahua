@@ -3,15 +3,17 @@ from animals.attributes import Flying
 from animals.attributes import Walking
 from animals.attributes import Swimming
 from animals.attributes import Terrestrial
+from animals.attributes import GroundNester
 
-class NeneGoose(Animal, Flying, Walking, Swimming, Terrestrial):
+class NeneGoose(Animal, Flying, Walking, Swimming, Terrestrial, GroundNester):
 
     def __init__(self):
-        Animal.__init__(self, "Nene Goose", 7)
+        Animal.__init__(self, "Nene Goose", 7.0)
         Flying.__init__(self)
         Walking.__init__(self)
         Swimming.__init__(self)
         Terrestrial.__init__(self)
+        GroundNester.__init__(self)
         self.__prey = { "Crickets", "Worms", "'Ōhelo berry" }
 
     @property
@@ -25,4 +27,4 @@ class NeneGoose(Animal, Flying, Walking, Swimming, Terrestrial):
             print(f'The nene goose rejects the {prey}')
 
     def __str__(self):
-        return f'Nene Goose [{str(self.id)}]'
+        return f'Nene Goose [{str(self.id)[:8]}]'

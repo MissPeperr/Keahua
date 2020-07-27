@@ -7,3 +7,4 @@ from .flying import Flying
 from .walking import Walking
 from .swimming import Swimming
 from .tree_dwelling import TreeDwelling
+from .ground_nester import GroundNester

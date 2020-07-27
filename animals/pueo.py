@@ -7,7 +7,7 @@ from animals.attributes import Terrestrial
 class Pueo(Animal, Flying, Walking, TreeDwelling, Terrestrial):
 
     def __init__(self):
-        Animal.__init__(self, "Pueo", 8)
+        Animal.__init__(self, "Pueo", 8.0)
         Flying.__init__(self)
         Walking.__init__(self)
         TreeDwelling.__init__(self)
@@ -25,4 +25,4 @@ class Pueo(Animal, Flying, Walking, TreeDwelling, Terrestrial):
             print(f'The pueo rejects the {prey}')
 
     def __str__(self):
-        return f'Pueo [{str(self.id)}]'
+        return f'Pueo [{str(self.id)[:8]}]'

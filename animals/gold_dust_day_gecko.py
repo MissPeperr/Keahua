@@ -1,14 +1,16 @@
 from animals import Animal
 from animals.attributes import Terrestrial
 from animals.attributes import Walking
+from animals.attributes import TreeDwelling
 
 
 class GoldDustDayGecko(Animal, Terrestrial, Walking):
 
     def __init__(self):
-        Animal.__init__(self, "Gold Dust Day Gecko", 2)
+        Animal.__init__(self, "Gold Dust Day Gecko", 2.0)
         Terrestrial.__init__(self)
         Walking.__init__(self, 4)
+        TreeDwelling.__init__(self)
         self.__prey = {"Flies", "Crickets"}
 
     @property
@@ -22,4 +24,4 @@ class GoldDustDayGecko(Animal, Terrestrial, Walking):
             print(f'The gold dust day gecko rejects the {prey}')
 
     def __str__(self):
-        return f'Gold Dust Day Gecko [{str(self.id)}]'
+        return f'Gold Dust Day Gecko [{str(self.id)[:8]}]'

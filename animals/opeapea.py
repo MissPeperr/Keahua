@@ -4,7 +4,7 @@ from animals.attributes import Flying
 class OpeApeA(Animal, Flying):
 
     def __init__(self):
-        Animal.__init__(self, "Ope'ape'a", 5)
+        Animal.__init__(self, "Ope'ape'a", 5.0)
         Flying.__init__(self)
         self.__prey = { "Crickets", "Carrot tops", "Worms", "Lettuce" }
 
@@ -19,4 +19,4 @@ class OpeApeA(Animal, Flying):
             print(f'The ope\'ape\'a rejects the {prey}')
 
     def __str__(self):
-        return f'Ope\'ape\'a [{str(self.id)}]'
+        return f'Ope\'ape\'a [{str(self.id)[:8]}]'

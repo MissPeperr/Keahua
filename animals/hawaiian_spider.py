@@ -22,4 +22,4 @@ class HawaiianHappyFaceSpider(Animal, Terrestrial, Walking):
             print(f'The hawaiian happy-face spider rejects the {prey}')
 
     def __str__(self):
-        return f'Hawaiian Happy-Face Spider [{str(self.id)}]'
+        return f'Hawaiian Happy-Face Spider [{str(self.id)[:8]}]'
