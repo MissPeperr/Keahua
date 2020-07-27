@@ -10,6 +10,9 @@ class Forest(Environment):
     def add_animal(self, animal):
         try:
             if animal.terrestrial and animal.tree_dwelling:
-                self.animals.append(animal)
+                if animal.age >= animal.min_age_for_release:
+                    self.animals.append(animal)
+                else:
+                    return False
         except AttributeError:
             print(f'The {animal.species} can\'t live in the {self.name} Forest. {add_color("Must be an animal of terrestrial descent and dwells within the trees. 🌳", "FAIL")}')

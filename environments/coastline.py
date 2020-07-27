@@ -8,6 +8,9 @@ class Coastline(Environment):
     def add_animal(self, animal):
         try:
             if animal.aquatic and animal.cell_type == "hypotonic":
-                self.animals.append(animal)
+                if animal.age >= animal.min_age_for_release:
+                    self.animals.append(animal)
+                else:
+                    return False
         except AttributeError:
-            raise AttributeError(f'The {animal.species} can\'t live in the {self.name} Coastline. {add_color("Cannot add non-aquatic, or freshwater animals to a Coastline.", "FAIL")}')
+            print(f'The {animal.species} can\'t live in the {self.name} Coastline. {add_color("Cannot add non-aquatic, or freshwater animals to a Coastline.", "FAIL")}')

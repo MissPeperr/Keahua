@@ -15,6 +15,40 @@ from actions.utilities import clear
 from actions.utilities import add_color
 
 
+def select_biome_menu(arboretum, animal):
+    print(f'{add_color("Available Biomes:", "HEADER")}')
+    print()
+
+    biome_list = list()
+    for index, coastline in enumerate(arboretum.coastlines):
+        biome_list.append(coastline)
+
+    for index, forest in enumerate(arboretum.forests):
+        biome_list.append(forest)
+
+    for index, grassland in enumerate(arboretum.grasslands):
+        biome_list.append(grassland)
+
+    for index, mountain in enumerate(arboretum.mountains):
+        biome_list.append(mountains)
+
+    for index, river in enumerate(arboretum.rivers):
+        biome_list.append(river)
+
+    for index, swamp in enumerate(arboretum.swamps):
+        biome_list.append(swamp)
+
+    for index, biome in enumerate(biome_list):
+        print(
+            f'{add_color(f"{index + 1}.", "bright_cyan")} {biome.name} {type(biome).__name__} [{str(biome.id)[:8]}]: ({len(biome.animals)} animals)')
+
+    print()
+    print()
+    print(f'{add_color(f"Release the {animal.species} into which biome?", "WARNING")}')
+    choice = input("> ")
+    return choice, biome_list
+
+
 def release_animal(arboretum, wrong_choice):
     """
         Prompts user to create an Animal to release into an Enviornment.
@@ -64,60 +98,29 @@ def release_animal(arboretum, wrong_choice):
         animal = RiverDolphin()
 
     else:
-        wrong_choice = True
         clear()
         print(
             f'{add_color(f"{choice} is not an animal. Please make another selection.", "FAIL")}')
         print()
-        release_animal(arboretum, wrong_choice)
+        release_animal(arboretum, True)
 
     print(f'Getting the {animal.species} ready...')
     loading_sequence()
     time.sleep(1.5)
     clear()
 
-    print(f'{add_color("Available Biomes:", "HEADER")}')
-    print()
-
-    biome_list = list()
-    for index, coastline in enumerate(arboretum.coastlines):
-        biome_list.append(coastline)
-
-    for index, forest in enumerate(arboretum.forests):
-        biome_list.append(forest)
-
-    for index, grassland in enumerate(arboretum.grasslands):
-        biome_list.append(grassland)
-
-    for index, mountain in enumerate(arboretum.mountains):
-        biome_list.append(mountains)
-
-    for index, river in enumerate(arboretum.rivers):
-        biome_list.append(river)
-
-    for index, swamp in enumerate(arboretum.swamps):
-        biome_list.append(swamp)
-
-    for index, biome in enumerate(biome_list):
-        print(
-            f'{add_color(f"{index + 1}.", "bright_cyan")} {biome.name} {type(biome).__name__} [{str(biome.id)[:8]}]: ({len(biome.animals)} animals)')
-
-    print()
-    print()
-    print(f'{add_color(f"Release the {animal.species} into which biome?", "WARNING")}')
-    choice = input("> ")
-
+    choice, biome_list = select_biome_menu(arboretum, animal)
     # check if choice selected exists as an index on the biome_list
     if (int(choice) - 1) < len(biome_list):
         biome = biome_list[int(choice) - 1]
 
-        if biome.add_animal(animal) == AttributeError:
-            print("poop")
-    print()
-    print(
-        f'Releasing the {animal.species} into the {biome.name} {type(biome).__name__}...')
-    loading_sequence()
-    time.sleep(1.5)
-    # Get the matching arboretum's list of that biome, from the biome's class name
-    # WOW SO PROUD OF THIS LINE OF CODE THAT'S TOTALLY REDUNDANT 😭
-    # getattr(arboretum, f'{type(biome).__name__.lower()}s')[int(choice) - 1].add_animal(animal)
+        if biome.add_animal(animal) == False:
+            print(
+                f'The chosen {animal.species} is not old enough, try another {animal.species}.')
+            release_animal(arboretum, True)
+        else: 
+            print()
+            print(
+                f'Releasing the {animal.species} into the {biome.name} {type(biome).__name__}...')
+            loading_sequence()
+            time.sleep(1.5)
