@@ -23,7 +23,7 @@ def build_menu():
     print()
 
 
-def main_menu(invalid_option):
+def main_menu():
     """Show Keahua Action Options
 
     Arguments: None

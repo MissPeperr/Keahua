@@ -105,9 +105,17 @@ def release_animal(arboretum, wrong_choice):
     choice = input("> ")
 
     # check if choice selected exists as an index on the biome_list
-    if int(choice - 1) < len(biome_list):
-        biome_list[int(choice) - 1].add_animal(animal)
-        arboretum.rivers[int(choice) - 1].add_animal(animal)
+    if (int(choice) - 1) < len(biome_list):
+        biome = biome_list[int(choice) - 1]
+        biome.add_animal(animal)
+
+    print()
+    print(f'Releasing the {animal.species} into the {biome.name} {type(biome).__name__}...')
+    loading_sequence()
+    time.sleep(1.5)
+        # Get the matching arboretum's list of that biome, from the biome's class name
+        # WOW SO PROUD OF THIS LINE OF CODE THAT'S TOTALLY REDUNDANT 😭
+        # getattr(arboretum, f'{type(biome).__name__.lower()}s')[int(choice) - 1].add_animal(animal)
         
 
 
