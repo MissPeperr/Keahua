@@ -4,7 +4,7 @@ from animals.attributes import Flying
 class OpeApeA(Animal, Flying):
 
     def __init__(self):
-        Animal.__init__(self, "Ope'ape'a")
+        Animal.__init__(self, "Ope'ape'a", 5)
         Flying.__init__(self)
         self.__prey = { "Crickets", "Carrot tops", "Worms", "Lettuce" }
 

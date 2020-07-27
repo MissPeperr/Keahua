@@ -5,7 +5,7 @@ from animals.attributes import Swimming
 class Ulae(Animal, Saltwater, Swimming):
 
     def __init__(self):
-        Animal.__init__(self, "'Ulae")
+        Animal.__init__(self, "'Ulae", 1)
         Saltwater.__init__(self)
         Swimming.__init__(self)
         self.__prey = { "Sardines", "Shrimp", "Goldfish", "Sea Urchin" }

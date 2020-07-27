@@ -14,6 +14,7 @@ from actions.cli_colors import CLColors
 from actions.utilities import clear
 from actions.utilities import add_color
 
+
 def release_animal(arboretum, wrong_choice):
     """
         Prompts user to create an Animal to release into an Enviornment.
@@ -46,16 +47,16 @@ def release_animal(arboretum, wrong_choice):
 
     elif choice == "3":
         animal = Kikakapu()
-    
+
     elif choice == "4":
         animal = NeneGoose()
-    
+
     elif choice == "5":
         animal = OpeApeA()
 
     elif choice == "6":
         animal = Pueo()
-    
+
     elif choice == "7":
         animal = RiverDolphin()
 
@@ -65,7 +66,8 @@ def release_animal(arboretum, wrong_choice):
     else:
         wrong_choice = True
         clear()
-        print(f'{add_color(f"{choice} is not an animal. Please make another selection.", "FAIL")}')
+        print(
+            f'{add_color(f"{choice} is not an animal. Please make another selection.", "FAIL")}')
         print()
         release_animal(arboretum, wrong_choice)
 
@@ -89,7 +91,7 @@ def release_animal(arboretum, wrong_choice):
 
     for index, mountain in enumerate(arboretum.mountains):
         biome_list.append(mountains)
-    
+
     for index, river in enumerate(arboretum.rivers):
         biome_list.append(river)
 
@@ -97,7 +99,8 @@ def release_animal(arboretum, wrong_choice):
         biome_list.append(swamp)
 
     for index, biome in enumerate(biome_list):
-        print(f'{add_color(f"{index + 1}.", "bright_cyan")} {biome.name} {type(biome).__name__} [{str(biome.id)[:8]}]: ({len(biome.animals)} animals)')
+        print(
+            f'{add_color(f"{index + 1}.", "bright_cyan")} {biome.name} {type(biome).__name__} [{str(biome.id)[:8]}]: ({len(biome.animals)} animals)')
 
     print()
     print()
@@ -107,15 +110,14 @@ def release_animal(arboretum, wrong_choice):
     # check if choice selected exists as an index on the biome_list
     if (int(choice) - 1) < len(biome_list):
         biome = biome_list[int(choice) - 1]
-        biome.add_animal(animal)
 
+        if biome.add_animal(animal) == AttributeError:
+            print("poop")
     print()
-    print(f'Releasing the {animal.species} into the {biome.name} {type(biome).__name__}...')
+    print(
+        f'Releasing the {animal.species} into the {biome.name} {type(biome).__name__}...')
     loading_sequence()
     time.sleep(1.5)
-        # Get the matching arboretum's list of that biome, from the biome's class name
-        # WOW SO PROUD OF THIS LINE OF CODE THAT'S TOTALLY REDUNDANT 😭
-        # getattr(arboretum, f'{type(biome).__name__.lower()}s')[int(choice) - 1].add_animal(animal)
-        
-
-
+    # Get the matching arboretum's list of that biome, from the biome's class name
+    # WOW SO PROUD OF THIS LINE OF CODE THAT'S TOTALLY REDUNDANT 😭
+    # getattr(arboretum, f'{type(biome).__name__.lower()}s')[int(choice) - 1].add_animal(animal)

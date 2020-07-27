@@ -6,7 +6,7 @@ from animals.attributes import Walking
 class HawaiianHappyFaceSpider(Animal, Terrestrial, Walking):
 
     def __init__(self):
-        Animal.__init__(self, "Hawaiian Happy-Face Spider")
+        Animal.__init__(self, "Hawaiian Happy-Face Spider", 0.5)
         Terrestrial.__init__(self)
         Walking.__init__(self, 8)
         self.__prey = {"Crickets", "Flies"}

@@ -10,4 +10,4 @@ class Coastline(Environment):
             if animal.aquatic and animal.cell_type == "hypotonic":
                 self.animals.append(animal)
         except AttributeError:
-            raise AttributeError("Cannot add non-aquatic, or freshwater animals to a river")
+            raise AttributeError(f'The {animal.species} can\'t live in the {self.name} Coastline. {add_color("Cannot add non-aquatic, or freshwater animals to a Coastline.", "FAIL")}')
