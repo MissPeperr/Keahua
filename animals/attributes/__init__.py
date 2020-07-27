@@ -8,3 +8,4 @@ from .walking import Walking
 from .swimming import Swimming
 from .tree_dwelling import TreeDwelling
 from .ground_nester import GroundNester
+from .high_elevation import HighElevation

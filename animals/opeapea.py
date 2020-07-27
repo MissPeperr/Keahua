@@ -1,7 +1,8 @@
 from animals import Animal
 from animals.attributes import Flying
+from animals.attributes import HighElevation
 
-class OpeApeA(Animal, Flying):
+class OpeApeA(Animal, Flying, HighElevation):
 
     def __init__(self):
         Animal.__init__(self, "Ope'ape'a", 5.0)

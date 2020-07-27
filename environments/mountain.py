@@ -8,7 +8,10 @@ class Mountain(Environment):
 
     def add_animal(self, animal):
         try:
-            if animal.aquatic and animal.cell_type == "hypertonic":
-                self.animals.append(animal)
+            if animal.high_elevation:
+                if animal.age >= animal.min_age_for_release:
+                    self.animals.append(animal)
+                else:
+                    return False
         except AttributeError:
-            raise AttributeError("Cannot add non-aquatic, or saltwater animals to a river")
+            print(f'The {animal.species} can\'t live on the {self.name} Mountain. {add_color("Must be a high elevation animal. 🗻", "FAIL")}')
